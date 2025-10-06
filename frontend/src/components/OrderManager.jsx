@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import api from "../axiosConfig";
 import PaymentSelector from "../components/PaymentSelector";
 import LoyaltyBadge from "../components/LoyaltyBadge";
@@ -218,7 +219,7 @@ export default function OrderManager() {
         {cartItems.length === 0 ? (
           <div style={{ textAlign: "center", padding: 20, color: "#666" }}>
             <p>Your cart is empty.</p>
-            <p>Visit the <a href="/plants" style={{ color: "#4caf50" }}>Plants page</a> to add items to your cart.</p>
+            <p>Visit the <Link to="/plants" style={{ color: "#4caf50" }}>Plants page</Link> to add items to your cart.</p>
           </div>
         ) : (
           <>
