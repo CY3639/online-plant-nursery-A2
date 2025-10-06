@@ -103,7 +103,7 @@ const onSubmit = async (e) => {
   };
 
   return (
-    <div style={{ maxWidth: 900, margin: "24px auto", padding: 16, color: "olive" }}>
+    <div style={{ maxWidth: 1280, margin: "24px auto", padding: 16, color: "olive" }}>
       <h1>Plant Manager</h1>
       {msg && <div style={{ background: "#f8f9ff", border: "1px solid #e6e8ff", padding: 10 }}>{msg}</div>}
 
@@ -219,24 +219,18 @@ const onSubmit = async (e) => {
       <hr style={{ margin: "16px 0" }} />
 
       {loading ? <p>Loading…</p> : plants.length === 0 ? <p>No plants yet</p> : (
-        <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))",
-          gap: 20
-        }}
-      >
-        {plants.map((p) => (
-          <PlantCard
-            key={p._id}
-            p={p}
-            mode="admin"
-            onEdit={edit}
-            onDelete={del}
-          />
-        ))}
-      </div>
-    )}
+        <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
+          {plants.map((p) => (
+            <PlantCard
+              key={p._id}
+              p={p}
+              mode="admin"
+              onEdit={edit}
+              onDelete={del}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
